@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nlu-local-scorer"
+version = "0.1.0"
+description = "Standalone CLI scorer for the NLI, AV, and ED reference solutions."
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+  "numpy",
+  "scikit-learn",
+]
+
+[project.scripts]
+nlu-score = "local_scorer.main:main"
+
+[tool.setuptools]
+packages = ["local_scorer"]
+
+[tool.setuptools.package-data]
+local_scorer = ["metric.txt", "reference_data/*.solution"]
