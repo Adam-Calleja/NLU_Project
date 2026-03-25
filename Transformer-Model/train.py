@@ -312,7 +312,7 @@ def train():
         if m["macro_f1"] > best_f1:
             best_f1 = m["macro_f1"]
             epochs_no_improve = 0
-            torch.save(model.state_dict(), "best_deberta_evidence_model.pt")
+            torch.save(model.state_dict(), "bestmodel.pt")
             print("[INFO] Model saved.")
         else:
             epochs_no_improve += 1
@@ -320,7 +320,7 @@ def train():
                 print(f"[INFO] Early stopping triggered for Stage 2 after {PATIENCE} epochs without improvement."); break
 
     print(f" TRAINING COMPLETE | Best Macro F1: {best_f1:.4f}")
-    print(f" Saved to -> best_deberta_evidence_model.pt")
+    print(f" Saved to -> bestmodel.pt")
    
 if __name__ == "__main__":
     train()
